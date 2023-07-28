@@ -1,10 +1,12 @@
+import org.jetbrains.kotlin.gradle.utils.loadPropertyFromResources
+import java.util.Properties
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
 }
-
 
 android {
     namespace = "com.abaferas.remote"
@@ -15,6 +17,25 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+
+
+        val apiProperties = Properties()
+        apiProperties.load(project.rootProject.file("local.properties").inputStream())
+
+
+        val apiKey = apiProperties.getProperty("api_key") ?: "YOUR_DEFAULT_API_KEY"
+        buildConfigField("String", "API_KEY", "\"$apiKey\"")
+
+        val apiQuery = apiProperties.getProperty("api_query") ?: "YOUR_DEFAULT_API_QUERY"
+        buildConfigField("String", "API_QUERY", "\"$apiQuery\"")
+
+        val urlStories = apiProperties.getProperty("url_stories") ?: "YOUR_DEFAULT_URL"
+        buildConfigField("String", "URL_STORIES", "\"$urlStories\"")
+
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     buildTypes {
