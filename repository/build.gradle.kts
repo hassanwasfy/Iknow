@@ -37,6 +37,8 @@ android {
 dependencies {
 
     implementation(project(":usecase"))
+    implementation(project(":exception"))
+
 
 
     implementation("androidx.core:core-ktx:1.10.1")

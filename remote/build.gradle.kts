@@ -59,6 +59,8 @@ android {
 dependencies {
 
     implementation(project(":repository"))
+    implementation(project(":exception"))
+
 
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.appcompat:appcompat:1.6.1")

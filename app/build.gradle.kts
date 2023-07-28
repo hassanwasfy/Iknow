@@ -58,7 +58,6 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
-    api(project(":entities"))
     api(project(":firebase"))
     api(project(":local"))
     api(project(":remote"))
@@ -66,6 +65,8 @@ dependencies {
     api(project(":ui"))
     api(project(":usecase"))
     api(project(":viewmodels"))
+    api(project(":exception"))
+
 }
 kapt {
     correctErrorTypes = true
