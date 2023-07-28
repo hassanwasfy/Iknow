@@ -10,35 +10,37 @@ fun List<DTOTopStories>.toDomain():List<TopStory>{
     }
 }
 fun DTOTopStories.toTopStory(): TopStory {
-    val topStoriesList = this.results.map { dtoTopStories ->
-        TopStory.TopStories(
-            section = dtoTopStories.section,
-            subsection = dtoTopStories.subsection,
-            title = dtoTopStories.title,
-            url = dtoTopStories.url,
-            updatedDate = dtoTopStories.updatedDate,
-            createdDate = dtoTopStories.createdDate,
-            publishedDate = dtoTopStories.publishedDate,
-            kicker = dtoTopStories.kicker,
-            multimedia = dtoTopStories.multimedia.map { dtoMultimedia ->
-                TopStory.TopStories.Multimedia(
-                    url = dtoMultimedia.url,
-                    format = dtoMultimedia.format,
-                    height = dtoMultimedia.height,
-                    width = dtoMultimedia.width,
-                    type = dtoMultimedia.type,
-                    subtype = dtoMultimedia.subtype,
-                    caption = dtoMultimedia.caption,
-                    copyright = dtoMultimedia.copyright
-                )
-            },
-            shortUrl = dtoTopStories.shortUrl
-        )
+    val topStoriesList = this.results?.map { dtoTopStories ->
+        dtoTopStories.multimedia?.let {
+            TopStory.TopStories(
+                section = dtoTopStories.section ?: "N/A",
+                subsection = dtoTopStories.subsection ?: "N/A",
+                title = dtoTopStories.title ?: "N/A",
+                url = dtoTopStories.url ?: "N/A",
+                updatedDate = dtoTopStories.updatedDate ?: "N/A",
+                createdDate = dtoTopStories.createdDate ?: "N/A",
+                publishedDate = dtoTopStories.publishedDate ?: "N/A",
+                kicker = dtoTopStories.kicker ?: "N/A",
+                multimedia = it.map { dtoMultimedia ->
+                    TopStory.TopStories.Multimedia(
+                        url = dtoMultimedia.url ?: "N/A",
+                        format = dtoMultimedia.format ?: "N/A",
+                        height = dtoMultimedia.height ?: 0,
+                        width = dtoMultimedia.width ?: 0,
+                        type = dtoMultimedia.type ?: "N/A",
+                        subtype = dtoMultimedia.subtype ?: "N/A",
+                        caption = dtoMultimedia.caption ?: "N/A",
+                        copyright = dtoMultimedia.copyright ?: "N/A"
+                    )
+                },
+                shortUrl = dtoTopStories.shortUrl ?: "N/A"
+            )
+        } ?: emptyList<DTOTopStories.TopStories>()
     }
 
     return TopStory(
-        copyright = this.copyright,
-        lastUpdated = this.lastUpdated,
-        results = topStoriesList
+        copyright = this.copyright ?: "N/A",
+        lastUpdated = this.lastUpdated ?: "N/A",
+        results = requireNotNull(topStoriesList as List<TopStory.TopStories>)
     )
 }

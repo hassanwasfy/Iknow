@@ -3,7 +3,7 @@ package com.abaferas.repository.repositories
 import com.abaferas.entities.TopStory
 import com.abaferas.repository.mapper.toTopStory
 import com.abaferas.repository.source.RemoteDataSource
-import com.abaferas.usecase.IRepositoryTopStory
+import com.abaferas.usecase.repositories.IRepositoryTopStory
 import javax.inject.Inject
 
 class IRepositoryTopStoryImpl @Inject constructor(

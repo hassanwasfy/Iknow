@@ -1,4 +1,4 @@
-package com.abaferas.usecase
+package com.abaferas.usecase.repositories
 
 import com.abaferas.entities.TopStory
 
