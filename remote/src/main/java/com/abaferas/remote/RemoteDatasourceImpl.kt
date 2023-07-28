@@ -1,23 +1,28 @@
 package com.abaferas.remote
 
 import com.abaferas.exception.IKnowException
-import com.abaferas.remote.api.story.ServiceStories
+import com.abaferas.remote.api.story.ApiService
+import com.abaferas.repository.models.DTOMovieReview
 import com.abaferas.repository.models.DTOTopStories
 import com.abaferas.repository.source.RemoteDataSource
 import retrofit2.Response
-import java.net.ConnectException
+import java.net.UnknownHostException
 import javax.inject.Inject
 
 class RemoteDatasourceImpl @Inject constructor(
-    private val serviceStories: ServiceStories
+    private val apiService: ApiService
 ):RemoteDataSource {
     override suspend fun getTopStoryBySection(section: String): DTOTopStories {
         return wrapBaseResponse {
-            serviceStories.getTopStories(section = section)
+            apiService.getTopStories(section = section)
         }
     }
 
-
+    override suspend fun searchMoviesReviews(query: String): DTOMovieReview {
+        return wrapBaseResponse {
+            apiService.searchMoviesReviews(query = query)
+        }
+    }
 
 
     private suspend fun <T> wrapBaseResponse(
@@ -34,7 +39,7 @@ class RemoteDatasourceImpl @Inject constructor(
                     else -> {throw IKnowException.ServiceUnAvailable}
                 }
             }
-        } catch (e: ConnectException) {
+        } catch (e: UnknownHostException) {
             throw IKnowException.NoInternetConnection
         }
     }

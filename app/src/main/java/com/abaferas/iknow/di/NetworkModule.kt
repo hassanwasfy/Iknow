@@ -1,7 +1,7 @@
 package com.abaferas.iknow.di
 
 import com.abaferas.remote.BuildConfig
-import com.abaferas.remote.api.story.ServiceStories
+import com.abaferas.remote.api.story.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,8 +18,8 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideRetrofitService(retrofit: Retrofit): ServiceStories {
-        return retrofit.create(ServiceStories::class.java)
+    fun provideRetrofitService(retrofit: Retrofit): ApiService {
+        return retrofit.create(ApiService::class.java)
     }
 
     @Singleton

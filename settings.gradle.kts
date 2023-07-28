@@ -16,7 +16,6 @@ dependencyResolutionManagement {
 rootProject.name = "IKnow"
 include(":app")
 include(":entities")
-include(":firebase")
 include(":local")
 include(":remote")
 include(":repository")

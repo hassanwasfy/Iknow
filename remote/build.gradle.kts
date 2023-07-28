@@ -32,6 +32,9 @@ android {
         val urlStories = apiProperties.getProperty("url_stories") ?: "YOUR_DEFAULT_URL"
         buildConfigField("String", "URL_STORIES", "\"$urlStories\"")
 
+        val urlReviews = apiProperties.getProperty("url_reviews") ?: "YOUR_DEFAULT_URL"
+        buildConfigField("String", "URL_REVIEWS", "\"$urlReviews\"")
+
     }
 
     buildFeatures {
