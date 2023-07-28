@@ -36,7 +36,8 @@ android {
 
 dependencies {
 
-    implementation(project(":usecase"))
+    api(project(":usecase"))
+    implementation(project(":exception"))
 
 
     implementation("androidx.core:core-ktx:1.10.1")
@@ -58,7 +59,6 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-service:$lifecycle_version")
     implementation("androidx.lifecycle:lifecycle-process:$lifecycle_version")
     testImplementation ("androidx.lifecycle:lifecycle-runtime-testing:$lifecycle_version")
-
 }
 kapt {
     correctErrorTypes = true

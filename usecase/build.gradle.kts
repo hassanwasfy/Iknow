@@ -14,4 +14,5 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
 dependencies{
     api(project(":entities"))
     implementation(project(":exception"))
+    implementation("com.google.dagger:dagger-android:2.47")
 }

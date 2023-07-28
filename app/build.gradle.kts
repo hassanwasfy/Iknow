@@ -47,13 +47,14 @@ android {
 
 dependencies {
     implementation("androidx.core:core-ktx:1.10.1")
-    implementation("com.google.dagger:hilt-android:2.44")
-    kapt("com.google.dagger:hilt-android-compiler:2.44")
+    implementation("com.google.dagger:hilt-android:2.47")
+    kapt("com.google.dagger:hilt-android-compiler:2.47")
 
 
     implementation(platform("com.squareup.okhttp3:okhttp-bom:4.10.0"))
     implementation("com.squareup.okhttp3:okhttp")
     implementation("com.squareup.okhttp3:logging-interceptor")
+
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
@@ -63,8 +64,6 @@ dependencies {
     api(project(":remote"))
     api(project(":repository"))
     api(project(":ui"))
-    api(project(":usecase"))
-    api(project(":viewmodels"))
     api(project(":exception"))
 
 }
