@@ -65,24 +65,26 @@ dependencies {
     implementation(project(":exception"))
 
 
-    implementation("androidx.core:core-ktx:1.10.1")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.9.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    implementation("com.google.dagger:hilt-android:2.47")
-    kapt("com.google.dagger:hilt-android-compiler:2.47")
-
-    val retrofit_version = "2.9.0"
-    implementation("com.squareup.retrofit2:retrofit:$retrofit_version")
-    implementation("com.squareup.retrofit2:converter-gson:$retrofit_version")
-    implementation("com.google.code.gson:gson:2.10.1")
-    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.11")
-    implementation(enforcedPlatform("com.squareup.okhttp3:okhttp-bom:5.0.0-alpha.11"))
-    implementation("com.squareup.okhttp3:okhttp")
-    implementation("com.squareup.okhttp3:logging-interceptor")
-    testImplementation("com.squareup.okhttp3:mockwebserver:5.0.0-alpha.11")
+    implementation(Deps.coreKtx)
+    testImplementation(Deps.junit)
+    androidTestImplementation(Deps.junitExt)
+    androidTestImplementation(Deps.testMonitor)
+    // Hilt
+    implementation(Deps.hiltAndroid)
+    kapt(Deps.hiltCompiler)
+    implementation(Deps.hiltWork)
+    // Retrofit
+    implementation(Deps.gson)
+    implementation(Deps.retrofit)
+    implementation(Deps.retrofitConvertoer)
+    implementation(Deps.okhttp3Logging)
+    implementation(Deps.okhttp3)
+    // WorkManager
+    implementation(Deps.workRuntimeKtx)
+    implementation(Deps.workMultiprocess)
+    //paging
+    implementation(Deps.pagingRuntime)
+    implementation(Deps.pagingCompose)
 
 
 }

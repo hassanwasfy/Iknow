@@ -42,53 +42,42 @@ android {
 }
 
 dependencies {
-
     api(project(":viewmodels"))
-
-
-    implementation("androidx.core:core-ktx:1.10.1")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.9.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
-    implementation("androidx.activity:activity-compose:1.7.2")
-    implementation(platform("androidx.compose:compose-bom:2023.06.01"))
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2023.06.01"))
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
-    debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-test-manifest")
-
-    val navVersion = "2.6.0"
-    implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
-    implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
-    implementation("androidx.navigation:navigation-compose:$navVersion")
-    androidTestImplementation("androidx.navigation:navigation-testing:$navVersion")
-
-
-    implementation("com.google.dagger:hilt-android:2.47")
-    kapt("com.google.dagger:hilt-android-compiler:2.47")
-    implementation ("androidx.hilt:hilt-navigation-compose:1.1.0-alpha01")
-
-
-
-
-    val composeBom = platform("androidx.compose:compose-bom:2023.06.01")
-    implementation(composeBom)
-    androidTestImplementation(composeBom)
-    implementation("androidx.compose.foundation:foundation")
-    // such as input and measurement/layout
-    debugImplementation("androidx.compose.ui:ui-tooling")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
-    debugImplementation("androidx.compose.ui:ui-test-manifest")
-    implementation("androidx.compose.material:material-icons-core")
-    implementation("androidx.compose.material:material-icons-extended")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+    implementation(Deps.coreKtx)
+    testImplementation(Deps.junit)
+    implementation(Deps.activityCompose)
+    androidTestImplementation(Deps.junitExt)
+    implementation(Deps.hiltAndroid)
+    kapt(Deps.hiltCompiler)
+    implementation(Deps.hiltNavigationCompose)
+    implementation(Deps.hiltWork)
+    implementation(Deps.coilCompose)
+    implementation(Deps.constraintLayoutCompose)
+    implementation(Deps.accompanistSystemUiController)
+    implementation(Deps.accompanistPermissions)
+    implementation(Deps.accompanistWebView)
+    implementation(Deps.lottieCompose)
+    implementation(Deps.workRuntimeKtx)
+    implementation(Deps.workMultiprocess)
+    implementation(Deps.gson)
+    implementation(Deps.appCompat)
+    implementation(Deps.material)
+    implementation(Deps.lifecycleRuntimeKtx)
+    implementation(platform(Deps.composeBom))
+    implementation(Deps.composeUI)
+    implementation(Deps.composeUIGraphics)
+    implementation(Deps.composeUIToolingPreview)
+    implementation(Deps.composeMaterial3)
+    androidTestImplementation(platform(Deps.composeBom))
+    androidTestImplementation(Deps.composeUITestJunit4)
+    debugImplementation(Deps.composeUITooling)
+    debugImplementation(Deps.composeUITestManifest)
+    debugImplementation(Deps.composeUITestManifestV)
+    implementation(Deps.composeFoundation)
+    implementation(Deps.composeMaterialIconsCore)
+    implementation(Deps.composeMaterialIconsExtended)
+    implementation(Deps.navCompose)
+    implementation(Deps.lifecycleViewModelCompose)
 }
 kapt {
     correctErrorTypes = true

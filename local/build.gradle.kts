@@ -39,25 +39,33 @@ dependencies {
     implementation(project(":repository"))
 
 
-    implementation("androidx.core:core-ktx:1.10.1")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.9.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    implementation("com.google.dagger:hilt-android:2.47")
-    kapt("com.google.dagger:hilt-android-compiler:2.47")
-
-    val room_version = "2.5.2"
-    implementation("androidx.room:room-runtime:$room_version")
+    implementation(Deps.coreKtx)
+    testImplementation(Deps.junit)
+    androidTestImplementation(Deps.junitExt)
+    // Hilt
+    implementation(Deps.hiltAndroid)
+    kapt(Deps.hiltCompiler)
+    implementation(Deps.hiltWork)
+    // Room
+    implementation(Deps.roomRuntime)
+    annotationProcessor(Deps.roomCompiler)
     //noinspection KaptUsageInsteadOfKsp
-    kapt("androidx.room:room-compiler:$room_version")
-    implementation("androidx.room:room-ktx:$room_version")
-    implementation("androidx.room:room-guava:$room_version")
-    testImplementation("androidx.room:room-testing:$room_version")
-    implementation("androidx.room:room-paging:$room_version")
+    kapt(Deps.roomCompilerKapt)
+    implementation(Deps.roomKtx)
+    testImplementation(Deps.roomTesting)
+    implementation(Deps.roomPaging)
+    //data store
+    implementation(Deps.dataStore)
+    //paging
+    implementation(Deps.pagingRuntime)
+    implementation(Deps.pagingCompose)
+    //gson
+    implementation(Deps.gson)
+    //workManager
+    implementation(Deps.workRuntimeKtx)
+    implementation(Deps.workMultiprocess)
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation(Deps.kotlinxCourotines)
 }
 kapt {
     correctErrorTypes = true

@@ -35,24 +35,20 @@ android {
 }
 
 dependencies {
-
     implementation(project(":usecase"))
     implementation(project(":exception"))
 
-
-
-    implementation("androidx.core:core-ktx:1.10.1")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.9.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    implementation("com.google.dagger:hilt-android:2.47")
-    kapt("com.google.dagger:hilt-android-compiler:2.47")
-
-    implementation("com.google.code.gson:gson:2.10.1")
-
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation(Deps.coreKtx)
+    testImplementation(Deps.junit)
+    androidTestImplementation(Deps.junitExt)
+    //hilt
+    implementation(Deps.hiltAndroid)
+    kapt(Deps.hiltCompiler)
+    implementation(Deps.hiltWork)
+    //gson
+    implementation(Deps.gson)
+    //retrofit
+    implementation(Deps.retrofit)
 }
 kapt {
     correctErrorTypes = true

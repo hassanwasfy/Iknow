@@ -46,18 +46,42 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.10.1")
-    implementation("com.google.dagger:hilt-android:2.47")
-    kapt("com.google.dagger:hilt-android-compiler:2.47")
-
-
-    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.10.0"))
-    implementation("com.squareup.okhttp3:okhttp")
-    implementation("com.squareup.okhttp3:logging-interceptor")
-
-
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation(Deps.coreKtx)
+    implementation(Deps.junitExt)
+    implementation(Deps.testMonitor)
+    testImplementation(Deps.testng)
+    androidTestImplementation(Deps.testng)
+    // Hilt
+    implementation(Deps.hiltAndroid)
+    kapt(Deps.hiltCompiler)
+    implementation(Deps.hiltWork)
+    //firebase
+    implementation(platform(Deps.firebaseBom))
+    implementation(Deps.firebaseAuth)
+    implementation(Deps.firebaseFirestore)
+    //retrofit
+    implementation(Deps.retrofit)
+    implementation(Deps.retrofitConvertoer)
+    implementation(Deps.okhttp3Logging)
+    implementation(Deps.okhttp3)
+    // Room
+    implementation(Deps.roomRuntime)
+    annotationProcessor(Deps.roomCompiler)
+    //noinspection KaptUsageInsteadOfKsp
+    kapt(Deps.roomCompilerKapt)
+    implementation(Deps.roomKtx)
+    testImplementation(Deps.roomTesting)
+    implementation(Deps.roomPaging)
+    //data store
+    implementation(Deps.dataStore)
+    //paging
+    implementation(Deps.pagingRuntime)
+    implementation(Deps.pagingCompose)
+    //gson
+    implementation(Deps.gson)
+    //workManager
+    implementation(Deps.workRuntimeKtx)
+    implementation(Deps.workMultiprocess)
 
     api(project(":local"))
     api(project(":remote"))
