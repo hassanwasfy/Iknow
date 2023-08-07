@@ -1,7 +1,7 @@
 package com.abaferas.iknow.di
 
 import com.abaferas.remote.BuildConfig
-import com.abaferas.remote.api.story.ApiService
+import com.abaferas.remote.api.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
