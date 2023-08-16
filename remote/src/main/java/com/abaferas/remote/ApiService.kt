@@ -1,4 +1,4 @@
-package com.abaferas.remote.api.story
+package com.abaferas.remote
 
 import com.abaferas.remote.BuildConfig
 import com.abaferas.repository.models.DTOMovieReview

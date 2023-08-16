@@ -26,15 +26,6 @@ android {
         val apiKey = apiProperties.getProperty("api_key") ?: "YOUR_DEFAULT_API_KEY"
         buildConfigField("String", "API_KEY", "\"$apiKey\"")
 
-        val apiQuery = apiProperties.getProperty("api_query") ?: "YOUR_DEFAULT_API_QUERY"
-        buildConfigField("String", "API_QUERY", "\"$apiQuery\"")
-
-        val urlStories = apiProperties.getProperty("url_stories") ?: "YOUR_DEFAULT_URL"
-        buildConfigField("String", "URL_STORIES", "\"$urlStories\"")
-
-        val urlReviews = apiProperties.getProperty("url_reviews") ?: "YOUR_DEFAULT_URL"
-        buildConfigField("String", "URL_REVIEWS", "\"$urlReviews\"")
-
     }
 
     buildFeatures {

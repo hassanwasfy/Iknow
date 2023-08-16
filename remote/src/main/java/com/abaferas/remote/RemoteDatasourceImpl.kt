@@ -1,7 +1,6 @@
 package com.abaferas.remote
 
 import com.abaferas.exception.IKnowException
-import com.abaferas.remote.api.story.ApiService
 import com.abaferas.repository.models.DTOMovieReview
 import com.abaferas.repository.models.DTOTopStories
 import com.abaferas.repository.source.RemoteDataSource
