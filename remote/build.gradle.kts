@@ -26,6 +26,12 @@ android {
         val apiKey = apiProperties.getProperty("api_key") ?: "YOUR_DEFAULT_API_KEY"
         buildConfigField("String", "API_KEY", "\"$apiKey\"")
 
+        val query = apiProperties.getProperty("api_query") ?: "YOUR_DEFAULT_URL"
+        buildConfigField("String", "API_QUERY", "\"$query\"")
+
+        val base = apiProperties.getProperty("base_url") ?: "YOUR_DEFAULT_URL"
+        buildConfigField("String", "BASE_URL", "\"$base\"")
+
     }
 
     buildFeatures {

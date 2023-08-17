@@ -30,7 +30,7 @@ object NetworkModule {
         factory: GsonConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(Urls.stories)
+            .baseUrl("")
             .client(client)
             .addConverterFactory(factory)
             .build()
