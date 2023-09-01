@@ -7,6 +7,8 @@ import com.abaferas.repository.models.DTOMostPopularArticle
 import com.abaferas.repository.models.DTOMovieReview
 import com.abaferas.repository.models.DTOTopStories
 import com.abaferas.repository.models.books.DTOBooks
+import com.abaferas.repository.models.books.DTOListFullOverView
+import com.abaferas.repository.models.books.DTOListOverView
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -32,13 +34,25 @@ interface ApiService {
     //endregion
 
     //region Books
-    //books/v3/lists.json
-    @GET("")
+    @GET("books/v3/lists.json")
     suspend fun getBestSellerBooks(
         @Query("list") bookType: String = "hardcover-fiction", /* TODO e-book-fiction*/
         @Query(BuildConfig.API_QUERY) apiKey: String = BuildConfig.API_KEY
     ):Response<DTOBooks>
+
+    @GET("books/v3/lists/overview.json")
+    suspend fun getBookListOverView(
+        @Query("published_date") publishedDate: String,
+        @Query(BuildConfig.API_QUERY) apiKey: String = BuildConfig.API_KEY
+    ): Response<DTOListOverView>
+
+    @GET("books/v3/lists/full-overview.json")
+    suspend fun getListFullOverView(
+        @Query(BuildConfig.API_QUERY) apiKey: String = BuildConfig.API_KEY
+    ):Response<DTOListFullOverView>
     //endregion
+
+
 
     // region Movies Reviews
     @GET("search.json")

@@ -13,7 +13,7 @@ data class DTOBooks(
     @SerializedName("last_modified")
     val lastModified: String?,
     @SerializedName("results")
-    val results: List<Result?>?
+    val results: List<Result>
 ) {
     data class Result(
         @SerializedName("list_name")
@@ -37,11 +37,11 @@ data class DTOBooks(
         @SerializedName("amazon_product_url")
         val amazonProductUrl: String?,
         @SerializedName("isbns")
-        val isbns: List<Isbn?>?,
+        val isbns: List<Isbn>,
         @SerializedName("book_details")
-        val bookDetails: List<BookDetail?>?,
+        val bookDetails: List<BookDetail>,
         @SerializedName("reviews")
-        val reviews: List<Review?>?
+        val reviews: List<Review>
     ) {
         data class Isbn(
             @SerializedName("isbn10")
