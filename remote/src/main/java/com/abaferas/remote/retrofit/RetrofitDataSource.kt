@@ -1,6 +1,7 @@
-package com.abaferas.remote
+package com.abaferas.remote.retrofit
 
 import com.abaferas.exception.IKnowException
+import com.abaferas.remote.api.ApiService
 import com.abaferas.repository.models.DTOMovieReview
 import com.abaferas.repository.models.DTOTopStories
 import com.abaferas.repository.source.RemoteDataSource
@@ -8,7 +9,7 @@ import retrofit2.Response
 import java.net.UnknownHostException
 import javax.inject.Inject
 
-class RemoteDatasourceImpl @Inject constructor(
+class RetrofitDataSource @Inject constructor(
     private val apiService: ApiService
 ):RemoteDataSource {
     override suspend fun getTopStoryBySection(section: String): DTOTopStories {
@@ -35,6 +36,7 @@ class RemoteDatasourceImpl @Inject constructor(
                 when(apiResponse.code()){
                     429 -> {throw IKnowException.TooManyRequests}
                     401 -> {throw IKnowException.NotAuthorized}
+                    400 -> {throw IKnowException.BadRequest}
                     else -> {throw IKnowException.ServiceUnAvailable}
                 }
             }
