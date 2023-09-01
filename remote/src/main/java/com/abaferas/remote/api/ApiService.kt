@@ -2,13 +2,12 @@ package com.abaferas.remote.api
 
 import com.abaferas.remote.BuildConfig
 import com.abaferas.repository.models.archive.DTOArticleArchive
-import com.abaferas.repository.models.search.DTOArticleSearch
-import com.abaferas.repository.models.DTOMostPopularArticle
-import com.abaferas.repository.models.DTOMovieReview
-import com.abaferas.repository.models.DTOTopStories
 import com.abaferas.repository.models.books.DTOBooks
 import com.abaferas.repository.models.books.DTOListFullOverView
 import com.abaferas.repository.models.books.DTOListOverView
+import com.abaferas.repository.models.mostpopular.DTOMostPopularArticle
+import com.abaferas.repository.models.search.DTOArticleSearch
+import com.abaferas.repository.models.topstories.DTOTopStories
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -36,7 +35,7 @@ interface ApiService {
     //region Books
     @GET("books/v3/lists.json")
     suspend fun getBestSellerBooks(
-        @Query("list") bookType: String = "hardcover-fiction", /* TODO e-book-fiction*/
+        @Query("list") bookType: String,
         @Query(BuildConfig.API_QUERY) apiKey: String = BuildConfig.API_KEY
     ):Response<DTOBooks>
 
@@ -51,17 +50,6 @@ interface ApiService {
         @Query(BuildConfig.API_QUERY) apiKey: String = BuildConfig.API_KEY
     ):Response<DTOListFullOverView>
     //endregion
-
-
-
-    // region Movies Reviews
-    @GET("search.json")
-    suspend fun searchMoviesReviews(
-        @Query("offset") offset:Int = 0,
-        @Query("query") query: String,
-        @Query(BuildConfig.API_QUERY) apiKey: String = BuildConfig.API_KEY
-    ):Response<DTOMovieReview>
-    // endregion
 
     // region Most Popular
     @GET("mostpopular/v2/viewed/{period}.json")
@@ -78,6 +66,5 @@ interface ApiService {
         @Query(BuildConfig.API_QUERY) apiKey: String = BuildConfig.API_KEY
     ): Response<DTOTopStories>
     // endregion
-
 
 }

@@ -1,7 +1,7 @@
 package com.abaferas.repository.mapper
 
 import com.abaferas.entities.TopStory
-import com.abaferas.repository.models.DTOTopStories
+import com.abaferas.repository.models.topstories.DTOTopStories
 
 
 fun List<DTOTopStories>.toDomain():List<TopStory>{
