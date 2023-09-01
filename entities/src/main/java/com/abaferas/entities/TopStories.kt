@@ -9,6 +9,7 @@ data class TopStories(
         val subsection: String,
         val title: String,
         val url: String,
+        val byLine: String,
         val updatedDate: String,
         val createdDate: String,
         val publishedDate: String,

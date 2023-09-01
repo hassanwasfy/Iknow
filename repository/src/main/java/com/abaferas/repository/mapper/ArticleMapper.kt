@@ -171,21 +171,21 @@ fun DTOListOverView.toDomain(): ArticleList {
 
 fun DTOMostPopularArticle.toDomain(): MostPopularArticle {
     val results = this.results.map { dtoResult ->
-        MostPopularArticle.Result(url = dtoResult.url ?: "",
+        MostPopularArticle.Result(url = dtoResult.url ?: noData,
             id = dtoResult.id ?: 0,
-            source = dtoResult.source ?: "",
-            updated = dtoResult.updated ?: "",
-            section = dtoResult.section ?: "",
-            subsection = dtoResult.subsection ?: "",
-            adxKeywords = dtoResult.adxKeywords ?: "",
-            column = dtoResult.column ?: "",
-            byline = dtoResult.byline ?: "",
-            type = dtoResult.type ?: "",
-            title = dtoResult.title ?: "",
-            abstract = dtoResult.`abstract` ?: "",
+            source = dtoResult.source ?: noData,
+            updated = dtoResult.updated ?: noData,
+            section = dtoResult.section ?: noData,
+            subsection = dtoResult.subsection ?: noData,
+            adxKeywords = dtoResult.adxKeywords ?: noData,
+            column = dtoResult.column ?: noData,
+            byline = dtoResult.byline ?: noData,
+            type = dtoResult.type ?: noData,
+            title = dtoResult.title ?: noData,
+            abstract = dtoResult.`abstract` ?: noData,
             media = dtoResult.media.map { media ->
                 MostPopularArticle.Result.Media(mediaMetadata = media.mediaMetadata.map {
-                    MostPopularArticle.Result.Media.MediaMetadata(it.url ?: "")
+                    MostPopularArticle.Result.Media.MediaMetadata(it.url ?: noData)
                 })
             })
     }
@@ -201,6 +201,7 @@ fun DTOTopStories.toDomain(): TopStories {
                 subsection = story.subsection ?: noData,
                 title = story.title ?: noData,
                 url = story.url ?: url404,
+                byLine = story.byline ?: noData,
                 updatedDate = story.updatedDate ?: noData,
                 createdDate = story.createdDate ?: noData,
                 publishedDate = story.publishedDate ?: noData,
@@ -218,5 +219,5 @@ fun DTOTopStories.toDomain(): TopStories {
 
 
 const val images = "https://www.nytimes.com/"
-const val noData = "N/A"
+const val noData = ""
 const val url404 = "https://google.com/not-very+found"
