@@ -1,15 +1,10 @@
 package com.abaferas.repository.mapper
 
 import com.abaferas.entities.TopStory
-import com.abaferas.repository.models.DTOTopStories
+import com.abaferas.repository.models.topstories.DTOTopStories
 
 
-fun List<DTOTopStories>.toDomain():List<TopStory>{
-    return this.map {
-        it.toTopStory()
-    }
-}
-fun DTOTopStories.toTopStory(): TopStory {
+fun DTOTopStories.toDomain(): TopStory {
     val topStoriesList = this.results?.map { dtoTopStories ->
         dtoTopStories.multimedia?.let {
             TopStory.TopStories(
@@ -24,13 +19,6 @@ fun DTOTopStories.toTopStory(): TopStory {
                 multimedia = it.map { dtoMultimedia ->
                     TopStory.TopStories.Multimedia(
                         url = dtoMultimedia.url ?: "N/A",
-                        format = dtoMultimedia.format ?: "N/A",
-                        height = dtoMultimedia.height ?: 0,
-                        width = dtoMultimedia.width ?: 0,
-                        type = dtoMultimedia.type ?: "N/A",
-                        subtype = dtoMultimedia.subtype ?: "N/A",
-                        caption = dtoMultimedia.caption ?: "N/A",
-                        copyright = dtoMultimedia.copyright ?: "N/A"
                     )
                 },
                 shortUrl = dtoTopStories.shortUrl ?: "N/A"
@@ -39,7 +27,6 @@ fun DTOTopStories.toTopStory(): TopStory {
     }
 
     return TopStory(
-        copyright = this.copyright ?: "N/A",
         lastUpdated = this.lastUpdated ?: "N/A",
         results = requireNotNull(topStoriesList as List<TopStory.TopStories>)
     )

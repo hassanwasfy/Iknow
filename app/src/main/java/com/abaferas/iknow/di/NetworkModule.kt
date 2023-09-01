@@ -1,7 +1,7 @@
 package com.abaferas.iknow.di
 
 import com.abaferas.remote.BuildConfig
-import com.abaferas.remote.api.story.ApiService
+import com.abaferas.remote.api.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,7 +29,7 @@ object NetworkModule {
         factory: GsonConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BuildConfig.URL_STORIES)
+            .baseUrl(BuildConfig.BASE_URL)
             .client(client)
             .addConverterFactory(factory)
             .build()

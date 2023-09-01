@@ -15,7 +15,7 @@
         android:theme="@style/Theme.IKnow"
         tools:targetApi="31">
         <activity
-            android:name="com.abaferas.ui.MainActivity"
+            android:name="com.abaferas.ui.main.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.IKnow">
             <intent-filter>

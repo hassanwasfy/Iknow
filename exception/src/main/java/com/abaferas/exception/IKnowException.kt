@@ -6,4 +6,5 @@ sealed class IKnowException(val errorMessage: String): Exception() {
     data object NoInternetConnection: IKnowException("No Internet Connection")
     data object ServiceUnAvailable: IKnowException("Service UnAvailable")
     data object NullResponseBody: IKnowException("Null Response Body")
+    data object BadRequest: IKnowException("No Parameters")
 }
