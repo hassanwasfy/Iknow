@@ -8,9 +8,9 @@ data class DTOTopStories(
     @SerializedName("section") val section: String?,
     @SerializedName("last_updated") val lastUpdated: String?,
     @SerializedName("num_results") val numResults: Int?,
-    @SerializedName("results") val results: List<TopStories>?
+    @SerializedName("results") val results: List<TopStoryDTO>
 ){
-    data class TopStories(
+    data class TopStoryDTO(
         @SerializedName("section") val section: String?,
         @SerializedName("subsection") val subsection: String?,
         @SerializedName("title") val title: String?,
@@ -24,11 +24,11 @@ data class DTOTopStories(
         @SerializedName("published_date") val publishedDate: String?,
         @SerializedName("material_type_facet") val materialTypeFacet: String?,
         @SerializedName("kicker") val kicker: String?,
-        @SerializedName("des_facet") val desFacet: List<String>?,
-        @SerializedName("org_facet") val orgFacet: List<String>?,
-        @SerializedName("per_facet") val perFacet: List<String>?,
-        @SerializedName("geo_facet") val geoFacet: List<String>?,
-        @SerializedName("multimedia") val multimedia: List<Multimedia>?,
+        @SerializedName("des_facet") val desFacet: List<String>,
+        @SerializedName("org_facet") val orgFacet: List<String>,
+        @SerializedName("per_facet") val perFacet: List<String>,
+        @SerializedName("geo_facet") val geoFacet: List<String>,
+        @SerializedName("multimedia") val multimedia: List<Multimedia>,
         @SerializedName("short_url") val shortUrl: String?
     ){
         data class Multimedia(

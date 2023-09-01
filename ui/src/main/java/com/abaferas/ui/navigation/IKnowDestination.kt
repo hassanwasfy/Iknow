@@ -1,5 +1,7 @@
 package com.abaferas.ui.navigation
 
+import com.abaferas.ui.R
+
 sealed class IKnowDestination(
     val route: String,
     val isSelected: Int? = null,
@@ -34,31 +36,31 @@ sealed class IKnowDestination(
 
     data object Home : IKnowDestination(
         "home",
-//        R.drawable.icon_home_filled,
-//        R.drawable.icon_home
+        R.drawable.home_2,
+        R.drawable.home_2_1
     )
 
     data object Search : IKnowDestination(
         "search",
-//        R.drawable.icon_search_filled,
-//        R.drawable.icon_search
+        R.drawable.search_normal_1,
+        R.drawable.search_normal_1_1
     )
 
     data object Category : IKnowDestination(
-        "category",
-//        R.drawable.icon_categories_filled,
-//        R.drawable.icon_categories
+        "saved",
+        R.drawable.save_2,
+        R.drawable.save_2_1
     )
 
     data object Library : IKnowDestination(
-        "library",
-//        R.drawable.icon_library_filled,
-//        R.drawable.icon_library
+        "books",
+        R.drawable.book_saved,
+        R.drawable.book_saved_1
     )
 
     data object FunActivities : IKnowDestination(
-        "funActivities",
-//        R.drawable.icon_game_filled,
-//        R.drawable.icon_game
+        "user",
+        R.drawable.user_1,
+        R.drawable.user
     )
 }

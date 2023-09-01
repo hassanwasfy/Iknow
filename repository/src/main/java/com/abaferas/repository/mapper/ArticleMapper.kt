@@ -1,15 +1,17 @@
 package com.abaferas.repository.mapper
 
 import com.abaferas.entities.Article
+import com.abaferas.entities.ArticleList
 import com.abaferas.entities.Books
-import com.abaferas.entities.List
 import com.abaferas.entities.MostPopularArticle
+import com.abaferas.entities.TopStories
 import com.abaferas.repository.models.archive.DTOArticleArchive
 import com.abaferas.repository.models.books.DTOBooks
 import com.abaferas.repository.models.books.DTOListFullOverView
 import com.abaferas.repository.models.books.DTOListOverView
 import com.abaferas.repository.models.mostpopular.DTOMostPopularArticle
 import com.abaferas.repository.models.search.DTOArticleSearch
+import com.abaferas.repository.models.topstories.DTOTopStories
 
 fun DTOArticleArchive.toDomain(): Article {
     return Article(docs = this.response.docs.map {
@@ -96,103 +98,80 @@ fun DTOBooks.toDomain(): Books {
     })
 }
 
-fun DTOListFullOverView.toDomain(): List<Any?> {
-    val results = this.results
-    val lists = results.lists.map { dtoList ->
-        val books = dtoList.books.map { dtoBook ->
-            List.Results.Lists.Book(
-                amazonProductUrl = "${images}${dtoBook.amazonProductUrl}",
-                author = dtoBook.author ?: noData,
-                bookImage = "${images}${dtoBook.bookImage}",
-                bookReviewLink = "${images}${dtoBook.bookReviewLink}",
-                contributor = dtoBook.contributor ?: noData,
-                contributorNote = dtoBook.contributorNote ?: noData,
-                createdDate = dtoBook.createdDate ?: noData,
-                description = dtoBook.description ?: noData,
-                price = dtoBook.price ?: noData,
-                primaryIsbn10 = dtoBook.primaryIsbn10 ?: noData,
-                primaryIsbn13 = dtoBook.primaryIsbn13 ?: noData,
-                publisher = dtoBook.publisher ?: noData,
-                rank = dtoBook.rank ?: 0,
-                title = dtoBook.title ?: noData,
-                buyLinks = dtoBook.buyLinks.map { dtoBuyLink ->
-                    List.Results.Lists.Book.BuyLink(
-                        name = dtoBuyLink.name ?: noData,
-                        url = "${images}${dtoBuyLink.url}"
-                    )
-                }
-            )
-        }
-
-        List.Results.Lists(
-            listId = dtoList.listId ?: 0,
-            displayName = dtoList.displayName ?: noData,
-            updated = dtoList.updated ?: "",
-            listImage = "${images}${dtoList.listImage}",
-            books = books
-        )
-    }
-
-    return List(
-        List.Results(
-            bestsellersDate = results.bestsellersDate ?: noData,
-            publishedDate = results.publishedDate ?: noData,
-            lists = lists
-        )
+fun DTOListFullOverView.toDomain(): ArticleList {
+    return ArticleList(
+        results = ArticleList.Results(bestsellersDate = this.results.bestsellersDate ?: noData,
+            publishedDate = this.results.publishedDate ?: noData,
+            lists = this.results.lists.map { lists ->
+                ArticleList.Results.Lists(listId = lists.listId ?: -1,
+                    displayName = lists.displayName ?: noData,
+                    updated = lists.updated ?: noData,
+                    listImage = "${images}${lists.listId}",
+                    books = lists.books.map { book ->
+                        ArticleList.Results.Lists.Book(amazonProductUrl = book.amazonProductUrl
+                            ?: noData,
+                            author = book.author ?: noData,
+                            bookImage = book.bookImage ?: noData,
+                            bookReviewLink = book.bookReviewLink ?: noData,
+                            contributor = book.contributor ?: noData,
+                            contributorNote = book.contributorNote ?: noData,
+                            createdDate = book.createdDate ?: noData,
+                            description = book.description ?: noData,
+                            price = book.price ?: noData,
+                            primaryIsbn10 = book.primaryIsbn10 ?: noData,
+                            primaryIsbn13 = book.primaryIsbn13 ?: noData,
+                            publisher = book.publisher ?: noData,
+                            rank = book.rank ?: -1,
+                            title = book.amazonProductUrl ?: noData,
+                            buyLinks = book.buyLinks.map { buy ->
+                                ArticleList.Results.Lists.Book.BuyLink(
+                                    name = buy.name ?: noData, url = buy.url ?: noData
+                                )
+                            })
+                    })
+            })
     )
 }
 
-fun DTOListOverView.toDomain(): List<Any?> {
-    val results = this.results
-    val lists = results.lists.map { dtoList ->
-        val books = dtoList.books.map { dtoBook ->
-            List.Results.Lists.Book(
-                amazonProductUrl = "${images}${dtoBook.amazonProductUrl}",
-                author = dtoBook.author ?: noData,
-                bookImage = "${images}${dtoBook.bookImage}",
-                bookReviewLink = "${images}${dtoBook.bookReviewLink}",
-                contributor = dtoBook.contributor ?: noData,
-                contributorNote = dtoBook.contributorNote ?: noData,
-                createdDate = dtoBook.createdDate ?: noData,
-                description = dtoBook.description ?: noData,
-                price = dtoBook.price ?: noData,
-                primaryIsbn10 = dtoBook.primaryIsbn10 ?: noData,
-                primaryIsbn13 = dtoBook.primaryIsbn13 ?: noData,
-                publisher = dtoBook.publisher ?: noData,
-                rank = dtoBook.rank ?: 0,
-                title = dtoBook.title ?: noData,
-                buyLinks = dtoBook.buyLinks.map { dtoBuyLink ->
-                    List.Results.Lists.Book.BuyLink(
-                        name = dtoBuyLink.name ?: noData,
-                        url = "${images}${dtoBuyLink.url}"
-                    )
-                }
-            )
-        }
-
-        List.Results.Lists(
-            listId = dtoList.listId ?: 0,
-            displayName = dtoList.displayName ?: noData,
-            updated = dtoList.updated ?: "",
-            listImage = "${images}${dtoList.listImage}",
-            books = books
-        )
-    }
-
-    return List(
-        List.Results(
-            bestsellersDate = results.bestsellersDate ?: noData,
-            publishedDate = results.publishedDate ?: noData,
-            lists = lists
-        )
+fun DTOListOverView.toDomain(): ArticleList {
+    return ArticleList(
+        results = ArticleList.Results(bestsellersDate = this.results.bestsellersDate ?: noData,
+            publishedDate = this.results.publishedDate ?: noData,
+            lists = this.results.lists.map { lists ->
+                ArticleList.Results.Lists(listId = lists.listId ?: -1,
+                    displayName = lists.displayName ?: noData,
+                    updated = lists.updated ?: noData,
+                    listImage = "${images}${lists.listId}",
+                    books = lists.books.map { book ->
+                        ArticleList.Results.Lists.Book(amazonProductUrl = book.amazonProductUrl
+                            ?: noData,
+                            author = book.author ?: noData,
+                            bookImage = book.bookImage ?: noData,
+                            bookReviewLink = book.bookReviewLink ?: noData,
+                            contributor = book.contributor ?: noData,
+                            contributorNote = book.contributorNote ?: noData,
+                            createdDate = book.createdDate ?: noData,
+                            description = book.description ?: noData,
+                            price = book.price ?: noData,
+                            primaryIsbn10 = book.primaryIsbn10 ?: noData,
+                            primaryIsbn13 = book.primaryIsbn13 ?: noData,
+                            publisher = book.publisher ?: noData,
+                            rank = book.rank ?: -1,
+                            title = book.amazonProductUrl ?: noData,
+                            buyLinks = book.buyLinks.map { buy ->
+                                ArticleList.Results.Lists.Book.BuyLink(
+                                    name = buy.name ?: noData, url = buy.url ?: noData
+                                )
+                            })
+                    })
+            })
     )
 }
 
 
 fun DTOMostPopularArticle.toDomain(): MostPopularArticle {
     val results = this.results.map { dtoResult ->
-        MostPopularArticle.Result(
-            url = dtoResult.url ?: "",
+        MostPopularArticle.Result(url = dtoResult.url ?: "",
             id = dtoResult.id ?: 0,
             source = dtoResult.source ?: "",
             updated = dtoResult.updated ?: "",
@@ -205,17 +184,39 @@ fun DTOMostPopularArticle.toDomain(): MostPopularArticle {
             title = dtoResult.title ?: "",
             abstract = dtoResult.`abstract` ?: "",
             media = dtoResult.media.map { media ->
-                MostPopularArticle.Result.Media(
-                    mediaMetadata = media.mediaMetadata.map {
-                        MostPopularArticle.Result.Media.MediaMetadata(it.url ?: "")
-                    }
-                )
-            }
-        )
+                MostPopularArticle.Result.Media(mediaMetadata = media.mediaMetadata.map {
+                    MostPopularArticle.Result.Media.MediaMetadata(it.url ?: "")
+                })
+            })
     }
     return MostPopularArticle(results)
+}
+
+fun DTOTopStories.toDomain(): TopStories {
+    return TopStories(
+        lastUpdated = this.lastUpdated ?: noData,
+        results = this.results.map { story ->
+            TopStories.TopStory(
+                section = story.section ?: noData,
+                subsection = story.subsection ?: noData,
+                title = story.title ?: noData,
+                url = story.url ?: url404,
+                updatedDate = story.updatedDate ?: noData,
+                createdDate = story.createdDate ?: noData,
+                publishedDate = story.publishedDate ?: noData,
+                desFacet = story.desFacet.map {
+                    TopStories.TopStory.Word(it)
+                },
+                kicker = story.kicker ?: noData,
+                multimedia = story.multimedia.map {
+                    TopStories.TopStory.Multimedia(it.url ?: url404)
+                },
+                shortUrl = story.shortUrl ?: url404
+            )
+        })
 }
 
 
 const val images = "https://www.nytimes.com/"
 const val noData = "N/A"
+const val url404 = "https://google.com/not-very+found"

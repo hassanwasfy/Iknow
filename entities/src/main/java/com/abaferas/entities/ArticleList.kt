@@ -1,8 +1,6 @@
 package com.abaferas.entities
 
-import kotlin.collections.List
-
-data class List<T>(
+data class ArticleList(
     val results: Results
 ) {
     data class Results(
