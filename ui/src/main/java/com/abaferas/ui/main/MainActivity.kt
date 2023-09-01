@@ -1,4 +1,4 @@
-package com.abaferas.ui
+package com.abaferas.ui.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
