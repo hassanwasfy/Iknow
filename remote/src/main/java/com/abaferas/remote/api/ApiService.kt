@@ -1,7 +1,6 @@
 package com.abaferas.remote.api
 
 import com.abaferas.remote.BuildConfig
-import com.abaferas.repository.models.archive.DTOArticleArchive
 import com.abaferas.repository.models.books.DTOBooks
 import com.abaferas.repository.models.books.DTOListFullOverView
 import com.abaferas.repository.models.books.DTOListOverView
