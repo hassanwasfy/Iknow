@@ -1,9 +1,7 @@
 package com.abaferas.iknow.di
 
-import com.abaferas.repository.repositories.IRepositoryMoviesImpl
-import com.abaferas.repository.repositories.IRepositoryTopStoryImpl
-import com.abaferas.usecase.repositories.IRepositoryMovies
-import com.abaferas.usecase.repositories.IRepositoryTopStory
+import com.abaferas.repository.repositories.IRepositoryImpl
+import com.abaferas.usecase.repositories.IRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -16,13 +14,7 @@ abstract class RepositoriesModule {
 
     @Binds
     abstract fun provideTopStory(
-        iRepositoryTopStoryImpl: IRepositoryTopStoryImpl
-    ): IRepositoryTopStory
-
-    @Binds
-    abstract fun provideMovies(
-        iRepositoryMoviesImpl: IRepositoryMoviesImpl
-    ): IRepositoryMovies
-
+        iRepositoryImpl: IRepositoryImpl
+    ): IRepository
 
 }

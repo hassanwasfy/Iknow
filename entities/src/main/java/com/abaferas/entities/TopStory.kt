@@ -1,7 +1,8 @@
 package com.abaferas.entities
 
+import kotlin.collections.List
+
 data class TopStory(
-    val copyright: String,
     val lastUpdated: String,
     val results: List<TopStories>
 ) {
@@ -19,13 +20,6 @@ data class TopStory(
     ) {
         data class Multimedia(
             val url: String,
-            val format: String,
-            val height: Int,
-            val width: Int,
-            val type: String,
-            val subtype: String,
-            val caption: String,
-            val copyright: String
         )
     }
 }
