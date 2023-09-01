@@ -1,5 +1,7 @@
 package com.abaferas.entities
 
+import kotlin.collections.List
+
 data class TopStory(
     val copyright: String,
     val lastUpdated: String,

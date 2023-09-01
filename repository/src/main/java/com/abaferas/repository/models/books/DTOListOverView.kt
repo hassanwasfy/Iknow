@@ -11,7 +11,7 @@ data class DTOListOverView(
     @SerializedName("num_results")
     val numResults: Int?,
     @SerializedName("results")
-    val results: Results?
+    val results: Results
 ) {
     data class Results(
         @SerializedName("bestsellers_date")
@@ -25,7 +25,7 @@ data class DTOListOverView(
         @SerializedName("next_published_date")
         val nextPublishedDate: String?,
         @SerializedName("lists")
-        val lists: List<Lists?>?
+        val lists: List<Lists>
     ) {
         data class Lists(
             @SerializedName("list_id")
@@ -39,13 +39,13 @@ data class DTOListOverView(
             @SerializedName("updated")
             val updated: String?,
             @SerializedName("list_image")
-            val listImage: Any?,
+            val listImage: String?,
             @SerializedName("list_image_width")
-            val listImageWidth: Any?,
+            val listImageWidth: String?,
             @SerializedName("list_image_height")
-            val listImageHeight: Any?,
+            val listImageHeight: String?,
             @SerializedName("books")
-            val books: List<Book?>?
+            val books: List<Book>
         ) {
             data class Book(
                 @SerializedName("age_group")
@@ -97,7 +97,7 @@ data class DTOListOverView(
                 @SerializedName("weeks_on_list")
                 val weeksOnList: Int?,
                 @SerializedName("buy_links")
-                val buyLinks: List<BuyLink?>?
+                val buyLinks: List<BuyLink>
             ) {
                 data class BuyLink(
                     @SerializedName("name")

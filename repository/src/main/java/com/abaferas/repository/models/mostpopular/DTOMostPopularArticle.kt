@@ -11,7 +11,7 @@ data class DTOMostPopularArticle(
     @SerializedName("num_results")
     val numResults: Int?,
     @SerializedName("results")
-    val results: List<Result?>?
+    val results: List<Result>
 ) {
     data class Result(
         @SerializedName("uri")
@@ -37,7 +37,7 @@ data class DTOMostPopularArticle(
         @SerializedName("adx_keywords")
         val adxKeywords: String?,
         @SerializedName("column")
-        val column: Any?,
+        val column: String?,
         @SerializedName("byline")
         val byline: String?,
         @SerializedName("type")
@@ -47,15 +47,15 @@ data class DTOMostPopularArticle(
         @SerializedName("abstract")
         val `abstract`: String?,
         @SerializedName("des_facet")
-        val desFacet: List<String?>?,
+        val desFacet: List<String>,
         @SerializedName("org_facet")
-        val orgFacet: List<String?>?,
+        val orgFacet: List<String>,
         @SerializedName("per_facet")
-        val perFacet: List<String?>?,
+        val perFacet: List<String>,
         @SerializedName("geo_facet")
-        val geoFacet: List<String?>?,
+        val geoFacet: List<String>,
         @SerializedName("media")
-        val media: List<Media?>?,
+        val media: List<Media>,
         @SerializedName("eta_id")
         val etaId: Int?
     ) {
@@ -71,7 +71,7 @@ data class DTOMostPopularArticle(
             @SerializedName("approved_for_syndication")
             val approvedForSyndication: Int?,
             @SerializedName("media-metadata")
-            val mediaMetadata: List<MediaMetadata?>?
+            val mediaMetadata: List<MediaMetadata>
         ) {
             data class MediaMetadata(
                 @SerializedName("url")

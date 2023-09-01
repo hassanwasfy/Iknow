@@ -4,12 +4,7 @@ import com.abaferas.entities.TopStory
 import com.abaferas.repository.models.topstories.DTOTopStories
 
 
-fun List<DTOTopStories>.toDomain():List<TopStory>{
-    return this.map {
-        it.toTopStory()
-    }
-}
-fun DTOTopStories.toTopStory(): TopStory {
+fun DTOTopStories.toDomain(): TopStory {
     val topStoriesList = this.results?.map { dtoTopStories ->
         dtoTopStories.multimedia?.let {
             TopStory.TopStories(

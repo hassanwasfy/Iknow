@@ -9,13 +9,13 @@ data class DTOArticleSearch(
     @SerializedName("copyright")
     val copyright: String?,
     @SerializedName("response")
-    val response: Response?
+    val response: Response
 ) {
     data class Response(
         @SerializedName("docs")
         val docs: List<Doc>,
         @SerializedName("meta")
-        val meta: Meta?
+        val meta: Meta
     ) {
         data class Doc(
             @SerializedName("abstract")
@@ -31,7 +31,7 @@ data class DTOArticleSearch(
             @SerializedName("multimedia")
             val multimedia: List<Multimedia>,
             @SerializedName("headline")
-            val headline: Headline?,
+            val headline: Headline,
             @SerializedName("keywords")
             val keywords: List<Keyword>,
             @SerializedName("pub_date")
@@ -43,7 +43,7 @@ data class DTOArticleSearch(
             @SerializedName("section_name")
             val sectionName: String?,
             @SerializedName("byline")
-            val byline: Byline?,
+            val byline: Byline,
             @SerializedName("type_of_material")
             val typeOfMaterial: String?,
             @SerializedName("_id")
@@ -77,7 +77,7 @@ data class DTOArticleSearch(
                 @SerializedName("width")
                 val width: Int?,
                 @SerializedName("legacy")
-                val legacy: Legacy?,
+                val legacy: Legacy,
                 @SerializedName("subType")
                 val subType: String?,
                 @SerializedName("crop_name")
