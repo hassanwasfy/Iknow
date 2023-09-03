@@ -5,13 +5,14 @@ import com.abaferas.entities.ArticleList
 import com.abaferas.entities.Books
 import com.abaferas.entities.MostPopularArticle
 import com.abaferas.entities.TopStories
-import com.abaferas.repository.models.archive.DTOArticleArchive
-import com.abaferas.repository.models.books.DTOBooks
-import com.abaferas.repository.models.books.DTOListFullOverView
-import com.abaferas.repository.models.books.DTOListOverView
-import com.abaferas.repository.models.mostpopular.DTOMostPopularArticle
-import com.abaferas.repository.models.search.DTOArticleSearch
-import com.abaferas.repository.models.topstories.DTOTopStories
+import com.abaferas.repository.models.dto.archive.DTOArticleArchive
+import com.abaferas.repository.models.dto.books.DTOBooks
+import com.abaferas.repository.models.dto.books.DTOListFullOverView
+import com.abaferas.repository.models.dto.books.DTOListOverView
+import com.abaferas.repository.models.dto.mostpopular.DTOMostPopularArticle
+import com.abaferas.repository.models.dto.search.DTOArticleSearch
+import com.abaferas.repository.models.dto.topstories.DTOTopStories
+
 
 fun DTOArticleArchive.toDomain(): Article {
     return Article(docs = this.response.docs.map {
@@ -28,8 +29,8 @@ fun DTOArticleArchive.toDomain(): Article {
                 kicker = it.headline.kicker ?: noData,
                 printHeadline = it.headline.printHeadline ?: noData
             ),
-            keywords = it.keywords.map { value ->
-                Article.Doc.Keyword(value.value ?: noData)
+            keywords = it.keywords.map { v ->
+                Article.Doc.Keyword(v.value ?: noData)
             },
             pubDate = it.pubDate ?: noData,
             newsDesk = it.newsDesk ?: noData,
@@ -38,9 +39,9 @@ fun DTOArticleArchive.toDomain(): Article {
             byline = Article.Doc.Byline(
                 original = it.byline.original ?: noData
             ),
-            hits = this.response.meta.hits ?: 0
-        )
-    })
+
+            )
+    }, hits = this.response.meta.hits ?: 0)
 }
 
 fun DTOArticleSearch.toDomain(): Article {
@@ -67,10 +68,10 @@ fun DTOArticleSearch.toDomain(): Article {
             subsectionName = it.subsectionName ?: noData,
             byline = Article.Doc.Byline(
                 original = it.byline.original ?: noData
-            ),
-            hits = this.response.meta.hits ?: 0
+            )
         )
-    })
+    }, hits = this.response.meta.hits ?: 0
+    )
 }
 
 fun DTOBooks.toDomain(): Books {

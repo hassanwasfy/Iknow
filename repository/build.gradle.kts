@@ -49,6 +49,14 @@ dependencies {
     implementation(Deps.gson)
     //retrofit
     implementation(Deps.retrofit)
+    // Room
+    implementation(Deps.roomRuntime)
+    annotationProcessor(Deps.roomCompiler)
+    //noinspection KaptUsageInsteadOfKsp
+    kapt(Deps.roomCompilerKapt)
+    implementation(Deps.roomKtx)
+    testImplementation(Deps.roomTesting)
+    implementation(Deps.roomPaging)
 }
 kapt {
     correctErrorTypes = true

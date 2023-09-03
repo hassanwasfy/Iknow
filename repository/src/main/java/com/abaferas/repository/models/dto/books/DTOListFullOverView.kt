@@ -1,9 +1,9 @@
-package com.abaferas.repository.models.books
+package com.abaferas.repository.models.dto.books
 
 
 import com.google.gson.annotations.SerializedName
 
-data class DTOListOverView(
+data class DTOListFullOverView(
     @SerializedName("status")
     val status: String?,
     @SerializedName("copyright")
@@ -41,9 +41,9 @@ data class DTOListOverView(
             @SerializedName("list_image")
             val listImage: String?,
             @SerializedName("list_image_width")
-            val listImageWidth: String?,
+            val listImageWidth: Int?,
             @SerializedName("list_image_height")
-            val listImageHeight: String?,
+            val listImageHeight: Int?,
             @SerializedName("books")
             val books: List<Book>
         ) {
@@ -64,6 +64,8 @@ data class DTOListOverView(
                 val bookImageHeight: Int?,
                 @SerializedName("book_review_link")
                 val bookReviewLink: String?,
+                @SerializedName("book_uri")
+                val bookUri: String?,
                 @SerializedName("contributor")
                 val contributor: String?,
                 @SerializedName("contributor_note")
@@ -80,8 +82,6 @@ data class DTOListOverView(
                 val primaryIsbn10: String?,
                 @SerializedName("primary_isbn13")
                 val primaryIsbn13: String?,
-                @SerializedName("book_uri")
-                val bookUri: String?,
                 @SerializedName("publisher")
                 val publisher: String?,
                 @SerializedName("rank")

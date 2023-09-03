@@ -2,13 +2,13 @@ package com.abaferas.remote.retrofit
 
 import com.abaferas.exception.IKnowException
 import com.abaferas.remote.api.ApiService
-import com.abaferas.repository.models.archive.DTOArticleArchive
-import com.abaferas.repository.models.books.DTOBooks
-import com.abaferas.repository.models.books.DTOListFullOverView
-import com.abaferas.repository.models.books.DTOListOverView
-import com.abaferas.repository.models.mostpopular.DTOMostPopularArticle
-import com.abaferas.repository.models.search.DTOArticleSearch
-import com.abaferas.repository.models.topstories.DTOTopStories
+import com.abaferas.repository.models.dto.archive.DTOArticleArchive
+import com.abaferas.repository.models.dto.books.DTOBooks
+import com.abaferas.repository.models.dto.books.DTOListFullOverView
+import com.abaferas.repository.models.dto.books.DTOListOverView
+import com.abaferas.repository.models.dto.mostpopular.DTOMostPopularArticle
+import com.abaferas.repository.models.dto.search.DTOArticleSearch
+import com.abaferas.repository.models.dto.topstories.DTOTopStories
 import com.abaferas.repository.source.RemoteDataSource
 import retrofit2.Response
 import java.net.UnknownHostException

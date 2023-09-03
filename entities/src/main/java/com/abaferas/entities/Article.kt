@@ -1,10 +1,9 @@
 package com.abaferas.entities
 
-import kotlin.collections.List
-
 
 data class Article(
     val docs: List<Doc>,
+    val hits: Int
 ) {
     class Doc(
         val webUrl: String,
@@ -19,7 +18,6 @@ data class Article(
         val sectionName: String,
         val subsectionName: String,
         val byline: Byline,
-        val hits: Int,
     ) {
         class Multimedia(
             val url: String,

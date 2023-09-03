@@ -1,4 +1,4 @@
-package com.abaferas.repository.models.books
+package com.abaferas.repository.models.dto.books
 
 
 import com.google.gson.annotations.SerializedName

@@ -13,7 +13,7 @@ import dagger.hilt.components.SingletonComponent
 abstract class RepositoriesModule {
 
     @Binds
-    abstract fun provideTopStory(
+    abstract fun provideRepository(
         iRepositoryImpl: IRepositoryImpl
     ): IRepository
 
