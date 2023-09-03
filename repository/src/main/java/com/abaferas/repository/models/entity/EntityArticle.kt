@@ -1,11 +1,20 @@
 package com.abaferas.repository.models.entity
 
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "entity_articles")
 data class EntityArticle(
+    @PrimaryKey(autoGenerate = true)
+    val id: Long = 0,
     val docs: List<DocEntity>,
-    val hits: Int,
+    val hits: Int
 ) {
-    class DocEntity(
+    @Entity(tableName = "doc_entity")
+    data class DocEntity(
+        @PrimaryKey(autoGenerate = true)
+        val id: Long = 0,
         val webUrl: String,
         val snippet: String,
         val leadParagraph: String,
@@ -19,23 +28,36 @@ data class EntityArticle(
         val subsectionName: String,
         val byline: BylineEntity,
     ) {
-        class MultimediaEntity(
+        @Entity(tableName = "multimedia_entity")
+        data class MultimediaEntity(
+            @PrimaryKey(autoGenerate = true)
+            val id: Long = 0,
             val url: String,
         )
 
-        class HeadlineEntity(
+        @Entity(tableName = "headline_entity")
+        data class HeadlineEntity(
+            @PrimaryKey(autoGenerate = true)
+            val id: Long = 0,
             val main: String,
             val kicker: String,
             val printHeadline: String,
         )
 
-        class KeywordEntity(
+        @Entity(tableName = "keyword_entity")
+        data class KeywordEntity(
+            @PrimaryKey(autoGenerate = true)
+            val id: Long = 0,
             val value: String,
         )
 
-        class BylineEntity(
+        @Entity(tableName = "byline_entity")
+        data class BylineEntity(
+            @PrimaryKey(autoGenerate = true)
+            val id: Long = 0,
             val original: String,
         )
     }
 }
+
 
