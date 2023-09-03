@@ -1,4 +1,4 @@
-package com.abaferas.repository.models.topstories
+package com.abaferas.repository.models.dto.topstories
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,39 +1,39 @@
-package com.abaferas.entities
+package com.abaferas.repository.models.entity
 
 
-data class Article(
-    val docs: List<Doc>,
-    val hits: Int
+data class EntityArticle(
+    val docs: List<DocEntity>,
+    val hits: Int,
 ) {
-    class Doc(
+    class DocEntity(
         val webUrl: String,
         val snippet: String,
         val leadParagraph: String,
         val source: String,
-        val multimedia: List<Multimedia>,
-        val headline: Headline,
-        val keywords: List<Keyword>,
+        val multimedia: List<MultimediaEntity>,
+        val headline: HeadlineEntity,
+        val keywords: List<KeywordEntity>,
         val pubDate: String,
         val newsDesk: String,
         val sectionName: String,
         val subsectionName: String,
-        val byline: Byline,
+        val byline: BylineEntity,
     ) {
-        class Multimedia(
+        class MultimediaEntity(
             val url: String,
         )
 
-        class Headline(
+        class HeadlineEntity(
             val main: String,
             val kicker: String,
             val printHeadline: String,
         )
 
-        class Keyword(
+        class KeywordEntity(
             val value: String,
         )
 
-        class Byline(
+        class BylineEntity(
             val original: String,
         )
     }

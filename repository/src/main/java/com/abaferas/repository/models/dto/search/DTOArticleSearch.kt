@@ -1,4 +1,4 @@
-package com.abaferas.repository.models.search
+package com.abaferas.repository.models.dto.search
 
 
 import com.google.gson.annotations.SerializedName
