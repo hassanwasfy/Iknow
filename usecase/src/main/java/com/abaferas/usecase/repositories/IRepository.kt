@@ -1,18 +1,18 @@
 package com.abaferas.usecase.repositories
 
 import com.abaferas.entities.Article
+import com.abaferas.entities.ArticleList
 import com.abaferas.entities.Books
-import com.abaferas.entities.List
 import com.abaferas.entities.MostPopularArticle
-import com.abaferas.entities.TopStory
+import com.abaferas.entities.TopStories
 
 interface IRepository {
     suspend fun getArticleArchive(year: Int, month: Int): Article
     suspend fun getArticleSearch(query: String): Article
     suspend fun getBestSellerBooksHandCover(): Books
     suspend fun getBestSellerBooksEbook(): Books
-    suspend fun getBookListOverView(publishedDate: String): List<Any?>
-    suspend fun getListFullOverView(): List<Any?>
+    suspend fun getBookListOverView(publishedDate: String): ArticleList
+    suspend fun getListFullOverView(): ArticleList
     suspend fun getMostPopular(period: Int): MostPopularArticle
-    suspend fun getTopStories(section: String): TopStory
+    suspend fun getTopStories(section: String): TopStories
 }

@@ -1,6 +1,7 @@
 package com.abaferas.viewmodels.screen.home
 
-import com.abaferas.entities.TopStory
+import com.abaferas.entities.TopStories
+
 
 data class HomeUi(
     val lastUpdated: String, val results: List<TopStories>
@@ -24,7 +25,7 @@ data class HomeUi(
 }
 
 
-fun TopStory.toUiState(): HomeUi {
+fun TopStories.toUiState(): HomeUi {
     return HomeUi(lastUpdated = this.lastUpdated, results = this.results.map {
         HomeUi.TopStories(
             section = it.section,

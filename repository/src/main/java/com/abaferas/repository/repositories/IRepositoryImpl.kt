@@ -1,10 +1,10 @@
 package com.abaferas.repository.repositories
 
 import com.abaferas.entities.Article
+import com.abaferas.entities.ArticleList
 import com.abaferas.entities.Books
-import com.abaferas.entities.List
 import com.abaferas.entities.MostPopularArticle
-import com.abaferas.entities.TopStory
+import com.abaferas.entities.TopStories
 import com.abaferas.repository.mapper.toDomain
 import com.abaferas.repository.source.RemoteDataSource
 import com.abaferas.usecase.repositories.IRepository
@@ -30,11 +30,11 @@ class IRepositoryImpl @Inject constructor(
         return remoteDataSource.getBestSellerBooksEbook().toDomain()
     }
 
-    override suspend fun getBookListOverView(publishedDate: String): List<Any?> {
+    override suspend fun getBookListOverView(publishedDate: String): ArticleList {
         return remoteDataSource.getBookListOverView(publishedDate).toDomain()
     }
 
-    override suspend fun getListFullOverView(): List<Any?> {
+    override suspend fun getListFullOverView(): ArticleList {
         return remoteDataSource.getListFullOverView().toDomain()
     }
 
@@ -42,7 +42,7 @@ class IRepositoryImpl @Inject constructor(
         return remoteDataSource.getMostPopular(period).toDomain()
     }
 
-    override suspend fun getTopStories(section: String): TopStory {
+    override suspend fun getTopStories(section: String): TopStories {
         return remoteDataSource.getTopStories(section).toDomain()
     }
 }
