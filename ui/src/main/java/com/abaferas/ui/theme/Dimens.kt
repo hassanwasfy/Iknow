@@ -8,6 +8,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 data class Dimens(
+    val dimens0: Dp = 0.dp,
     val dimens1: Dp = 1.dp,
     val dimens2: Dp = 2.dp,
     val dimens8: Dp = 8.dp,
