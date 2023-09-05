@@ -19,13 +19,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.abaferas.ui.navigation.IKnowDestination
-import com.abaferas.ui.theme.BottomNavigationColor
 import com.abaferas.ui.theme.color
 import com.abaferas.ui.theme.dimens
 import kotlin.system.exitProcess
@@ -45,7 +45,6 @@ fun BottomNavBar(visibility: Boolean) {
                 IKnowDestination.Search,
                 IKnowDestination.Category,
                 IKnowDestination.Library,
-                IKnowDestination.FunActivities
             )
         )
     }
@@ -55,7 +54,7 @@ fun BottomNavBar(visibility: Boolean) {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(MaterialTheme.dimens.dimens70)
-                .background(MaterialTheme.color.backgroundPrimary)
+                .background(MaterialTheme.color.white)
                 .shadow(
                     elevation = MaterialTheme.dimens.dimens2,
                     clip = false,
@@ -63,7 +62,7 @@ fun BottomNavBar(visibility: Boolean) {
                 .drawBehind {
                     val strokeWidth = 2f
                     drawLine(
-                        color = BottomNavigationColor,
+                        color = Color.White,
                         start = Offset(-size.width, 0f),
                         end = Offset(size.width, 1f),
                         strokeWidth = strokeWidth

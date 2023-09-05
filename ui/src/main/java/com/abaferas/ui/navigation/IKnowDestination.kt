@@ -57,10 +57,4 @@ sealed class IKnowDestination(
         R.drawable.book_saved,
         R.drawable.book_saved_1
     )
-
-    data object FunActivities : IKnowDestination(
-        "user",
-        R.drawable.user_1,
-        R.drawable.user
-    )
 }

@@ -15,7 +15,7 @@ val LocalNavController =
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun MovieApp() {
+fun IKnowApp() {
     val navController = rememberNavController()
     CompositionLocalProvider(LocalNavController provides navController) {
         Scaffold(
@@ -26,7 +26,6 @@ fun MovieApp() {
                         IKnowDestination.Search.route,
                         IKnowDestination.Category.route,
                         IKnowDestination.Library.route,
-                        IKnowDestination.FunActivities.route
                     )
                 BottomNavBar(visibility)
             }
