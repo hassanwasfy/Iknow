@@ -43,8 +43,8 @@ fun BottomNavBar(visibility: Boolean) {
             listOf(
                 IKnowDestination.Home,
                 IKnowDestination.Search,
-                IKnowDestination.Category,
-                IKnowDestination.Library,
+                IKnowDestination.Saves,
+                IKnowDestination.Books,
             )
         )
     }

@@ -9,6 +9,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.abaferas.ui.navigation.IKnowDestination
 import com.abaferas.ui.navigation.IKnowNavGraph
+import com.abaferas.viewmodels.screen.home.HomeArgs
+
 
 val LocalNavController =
     compositionLocalOf<NavHostController> { error("No NavController found!") }
@@ -22,10 +24,10 @@ fun IKnowApp() {
             bottomBar = {
                 val visibility =
                     (currentDestination()?.route ?: "") in listOf(
-                        IKnowDestination.Home.route,
+                        "${IKnowDestination.Home.route}/${HomeArgs.SECTIONS}",
                         IKnowDestination.Search.route,
-                        IKnowDestination.Category.route,
-                        IKnowDestination.Library.route,
+                        IKnowDestination.Books.route,
+                        IKnowDestination.Saves.route,
                     )
                 BottomNavBar(visibility)
             }
@@ -34,3 +36,7 @@ fun IKnowApp() {
         }
     }
 }
+
+
+
+
