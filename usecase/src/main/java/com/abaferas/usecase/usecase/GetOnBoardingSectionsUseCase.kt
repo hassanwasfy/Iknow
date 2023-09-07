@@ -6,7 +6,8 @@ class GetOnBoardingSectionsUseCase @Inject constructor() {
     operator fun invoke() = listOf(
         "arts",
         "automobiles",
-        "books/review",
+        "books",
+        "review",
         "business",
         "fashion",
         "food",
