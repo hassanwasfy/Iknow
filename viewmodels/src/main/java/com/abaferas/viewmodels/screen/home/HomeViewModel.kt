@@ -1,5 +1,6 @@
 package com.abaferas.viewmodels.screen.home
 
+import androidx.lifecycle.SavedStateHandle
 import com.abaferas.usecase.usecase.GetTopStoriesBySectionUseCase
 import com.abaferas.viewmodels.base.BaseViewModel
 import com.abaferas.viewmodels.base.ErrorUiState
@@ -9,18 +10,20 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val getTopStoriesBySectionUseCase: GetTopStoriesBySectionUseCase
+    private val getTopStoriesBySectionUseCase: GetTopStoriesBySectionUseCase,
+    savedStateHandle: SavedStateHandle
 ) : BaseViewModel<HomeUiState, HomeUiEffect>(HomeUiState()), HomeInteractionListener {
+
+    private val args: HomeArgs = HomeArgs(savedStateHandle)
 
     init {
         getData()
     }
 
     private fun getData() {
-        val section = "home"
         tryToExecute(
             execute = {
-                getTopStoriesBySectionUseCase.invoke(section).toUiState()
+                getTopStoriesBySectionUseCase.invoke(args.sections).toUiState()
             },
             onError = ::onError,
             onSuccess = ::onSuccess
@@ -51,4 +54,15 @@ class HomeViewModel @Inject constructor(
         }
     }
 
+    override fun onClickSearch() {
+        sendUiEffect(HomeUiEffect.NavigateToSearch)
+    }
+
+    override fun onClickBooks() {
+        sendUiEffect(HomeUiEffect.NavigateToBooks)
+    }
+
+    override fun onClickSaves() {
+        sendUiEffect(HomeUiEffect.NavigateToSaves)
+    }
 }
