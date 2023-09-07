@@ -1,7 +1,6 @@
 package com.abaferas.entities
 
 data class TopStories(
-    val lastUpdated: String,
     val results: List<TopStory>
 ) {
     data class TopStory(

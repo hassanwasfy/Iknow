@@ -28,7 +28,7 @@ data class DTOTopStories(
         @SerializedName("org_facet") val orgFacet: List<String>,
         @SerializedName("per_facet") val perFacet: List<String>,
         @SerializedName("geo_facet") val geoFacet: List<String>,
-        @SerializedName("multimedia") val multimedia: List<Multimedia>,
+        @SerializedName("multimedia") val multimedia: List<Multimedia>?,
         @SerializedName("short_url") val shortUrl: String?
     ){
         data class Multimedia(

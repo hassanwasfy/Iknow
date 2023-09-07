@@ -195,7 +195,6 @@ fun DTOMostPopularArticle.toDomain(): MostPopularArticle {
 
 fun DTOTopStories.toDomain(): TopStories {
     return TopStories(
-        lastUpdated = this.lastUpdated ?: noData,
         results = this.results.map { story ->
             TopStories.TopStory(
                 section = story.section ?: noData,
@@ -210,9 +209,9 @@ fun DTOTopStories.toDomain(): TopStories {
                     TopStories.TopStory.Word(it)
                 },
                 kicker = story.kicker ?: noData,
-                multimedia = story.multimedia.map {
+                multimedia = story.multimedia?.map {
                     TopStories.TopStory.Multimedia(it.url ?: url404)
-                },
+                } ?: emptyList(),
                 shortUrl = story.shortUrl ?: url404
             )
         })
