@@ -82,6 +82,9 @@ dependencies {
     //workManager
     implementation(Deps.workRuntimeKtx)
     implementation(Deps.workMultiprocess)
+    //navigation
+    implementation(Deps.navCompose)
+    implementation((Deps.lifecycleViewModelCompose))
 
     api(project(":local"))
     api(project(":remote"))

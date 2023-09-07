@@ -1,5 +1,6 @@
 package com.abaferas.viewmodels.screen.onboarding
 
+import android.util.Log
 import com.abaferas.usecase.usecase.GetOnBoardingSectionsUseCase
 import com.abaferas.viewmodels.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,6 +19,7 @@ class OnBoardingViewModel @Inject constructor(
     val selected = _selected.asStateFlow()
 
     init {
+        Log.i("x010", "OnBoardStart")
         getData()
     }
 
@@ -35,7 +37,8 @@ class OnBoardingViewModel @Inject constructor(
     }
 
     override fun onClickSubmit() {
-        sendUiEffect(OnBoardingUiEffect.SubmitSelected(""))
+        val choices = selected.value.joinToString(",")
+        sendUiEffect(OnBoardingUiEffect.SubmitSelected(choices))
     }
 
     override fun toggleItem(item: Item) {
@@ -44,10 +47,6 @@ class OnBoardingViewModel @Inject constructor(
         } else {
             _selected.value.add(item.name)
         }
-    }
-
-    fun isItemSelected(item: String): Boolean {
-        return _selected.value.contains(item)
     }
 }
 

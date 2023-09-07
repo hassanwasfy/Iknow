@@ -14,5 +14,8 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
 dependencies{
     api(project(":entities"))
     implementation(project(":exception"))
-    implementation("com.google.dagger:dagger-android:2.47")
+    implementation(Deps.dagger)
+    testImplementation(Deps.testng)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
 }

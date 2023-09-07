@@ -8,3 +8,4 @@ data class OnBoardingUi(
     val list: MutableList<Item> = mutableListOf(),
     val isLoading: Boolean = true,
 ) : BaseUiState
+
