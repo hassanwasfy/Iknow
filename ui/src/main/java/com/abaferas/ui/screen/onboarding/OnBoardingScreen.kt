@@ -74,7 +74,7 @@ fun OnBoardingScreen(onBoardingViewModel: OnBoardingViewModel = hiltViewModel())
             }
 
             is OnBoardingUiEffect.SubmitSelected -> {
-                nav.navigateToHome(effect.selected)
+                nav.navigateToHome()
             }
         }
     }
