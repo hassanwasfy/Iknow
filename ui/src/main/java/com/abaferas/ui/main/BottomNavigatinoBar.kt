@@ -28,6 +28,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import com.abaferas.ui.navigation.IKnowDestination
 import com.abaferas.ui.theme.color
 import com.abaferas.ui.theme.dimens
+import com.abaferas.ui.theme.info600
 import kotlin.system.exitProcess
 
 @Composable
@@ -119,6 +120,7 @@ fun BottomNavItem(
                 }
             },
         painter = painterResource(if (selected) screen.isSelected!! else screen.isUnSelected!!),
-        contentDescription = ""
+        contentDescription = "",
+        tint = info600
     )
 }
