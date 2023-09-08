@@ -6,6 +6,7 @@ data class TopStories(
     data class TopStory(
         val section: String,
         val subsection: String,
+        val `abstract`: String,
         val title: String,
         val url: String,
         val byLine: String,

@@ -201,6 +201,7 @@ fun DTOTopStories.toDomain(): TopStories {
                 subsection = story.subsection ?: noData,
                 title = story.title ?: noData,
                 url = story.url ?: url404,
+                abstract = story.abstract ?: noData,
                 byLine = story.byline ?: noData,
                 updatedDate = story.updatedDate ?: noData,
                 createdDate = story.createdDate ?: noData,

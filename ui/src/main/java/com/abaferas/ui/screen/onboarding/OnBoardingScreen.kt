@@ -23,7 +23,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -47,6 +46,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.abaferas.ui.R
+import com.abaferas.ui.compose.CenterTopAppBar
 import com.abaferas.ui.navigation.NavigationHandler
 import com.abaferas.ui.screen.home.navigateToHome
 import com.abaferas.ui.theme.Typography
@@ -84,7 +84,7 @@ fun OnBoardingScreen(onBoardingViewModel: OnBoardingViewModel = hiltViewModel())
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun OnBoardingScreenContent(
+private fun OnBoardingScreenContent(
     state: OnBoardingUi,
     selected: MutableList<String>,
     listener: OnBoardingInteraction
@@ -94,7 +94,7 @@ fun OnBoardingScreenContent(
     }
     Scaffold(
         topBar = {
-            CenterAlignedTopAppBar(title = { Text(text = state.title) })
+            CenterTopAppBar(title = state.title)
         },
         bottomBar = {
             PrimaryButton("Submit", enabled = count > 0) {

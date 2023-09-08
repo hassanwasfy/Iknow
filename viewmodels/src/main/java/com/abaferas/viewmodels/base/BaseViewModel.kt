@@ -19,6 +19,7 @@ abstract class BaseViewModel<UiState : BaseUiState, UiEffect>(state: UiState) : 
     private val iEffect = MutableSharedFlow<UiEffect>()
     val effect = iEffect.asSharedFlow()
 
+    protected abstract fun getData()
     fun <T> tryToExecute(
         execute: suspend () -> T,
         onSuccess: (T) -> Unit = {},

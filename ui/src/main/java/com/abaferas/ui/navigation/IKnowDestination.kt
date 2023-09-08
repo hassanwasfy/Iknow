@@ -8,7 +8,7 @@ sealed class IKnowDestination(
     val isUnSelected: Int? = null
 ) {
     data object OnBoarding : IKnowDestination("boarding_screen")
-
+    data object Article : IKnowDestination("article")
 
     data object Home : IKnowDestination(
         "home_screen",

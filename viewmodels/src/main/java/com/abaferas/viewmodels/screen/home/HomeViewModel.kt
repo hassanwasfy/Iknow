@@ -17,7 +17,7 @@ class HomeViewModel @Inject constructor(
         getData()
     }
 
-    private fun getData() {
+    override fun getData() {
         tryToExecute(
             execute = {
                 getTopStoriesBySectionUseCase.invoke("books").toUiState()

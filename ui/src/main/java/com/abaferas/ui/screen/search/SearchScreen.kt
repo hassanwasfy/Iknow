@@ -8,6 +8,6 @@ fun SearchScreen() {
 }
 
 @Composable
-fun SearchScreenContent() {
+private fun SearchScreenContent() {
 
 }

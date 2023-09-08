@@ -23,7 +23,7 @@ class OnBoardingViewModel @Inject constructor(
         getData()
     }
 
-    private fun getData() {
+    override fun getData() {
         iState.update {
             OnBoardingUi(
                 isLoading = false,

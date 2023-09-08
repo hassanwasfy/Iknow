@@ -35,6 +35,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
 import com.abaferas.ui.R
 import com.abaferas.ui.compose.BuildScaffold
+import com.abaferas.ui.compose.NormalTopAppBar
 import com.abaferas.ui.navigation.NavigationHandler
 import com.abaferas.ui.screen.onboarding.StatusBarColors
 import com.abaferas.ui.screen.search.navigateToSearch
@@ -43,7 +44,6 @@ import com.abaferas.ui.theme.Montserrat
 import com.abaferas.ui.theme.White
 import com.abaferas.ui.theme.info600
 import com.abaferas.ui.theme.neutral500
-import com.abaferas.viewmodels.screen.home.HomeInteractionListener
 import com.abaferas.viewmodels.screen.home.HomeUiEffect
 import com.abaferas.viewmodels.screen.home.HomeUiState
 import com.abaferas.viewmodels.screen.home.HomeViewModel
@@ -52,7 +52,7 @@ import com.abaferas.viewmodels.screen.home.HomeViewModel
 fun HomeScreen(homeViewModel: HomeViewModel = hiltViewModel()) {
     StatusBarColors()
     val state = homeViewModel.state.collectAsState().value
-    HomeScreenContent(state, homeViewModel)
+    HomeScreenContent(state)
     NavigationHandler(effects = homeViewModel.effect) { effect, nav ->
         when (effect) {
             is HomeUiEffect.NavigateToArticle -> {}
@@ -67,9 +67,9 @@ fun HomeScreen(homeViewModel: HomeViewModel = hiltViewModel()) {
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun HomeScreenContent(state: HomeUiState, listener: HomeInteractionListener) {
+private fun HomeScreenContent(state: HomeUiState) {
     BuildScaffold(
-        title = "Home",
+        topAppBar = { NormalTopAppBar(title = "Home") },
         isLoading = state.isLoading,
         error = state.error,
     ) {
