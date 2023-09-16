@@ -8,6 +8,7 @@ import com.abaferas.ui.compose.BuildScaffold
 import com.abaferas.ui.navigation.NavigationHandler
 import com.abaferas.ui.screen.onboarding.StatusBarColors
 import com.abaferas.viewmodels.screen.home.HomeInteractionListener
+import com.abaferas.viewmodels.screen.home.HomeUiEffect
 import com.abaferas.viewmodels.screen.home.HomeUiState
 import com.abaferas.viewmodels.screen.home.HomeViewModel
 
@@ -18,7 +19,17 @@ fun ArticleScreen(homeViewModel: HomeViewModel = hiltViewModel()) {
     ArticleScreenContent(state, homeViewModel)
     NavigationHandler(effects = homeViewModel.effect) { effect, nav ->
         when (effect) {
+            is HomeUiEffect.NavigateToArticle -> {
+            }
 
+            HomeUiEffect.NavigateToBooks -> {
+            }
+
+            HomeUiEffect.NavigateToSaves -> {
+            }
+
+            HomeUiEffect.NavigateToSearch -> {
+            }
         }
     }
 }

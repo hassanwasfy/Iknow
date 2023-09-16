@@ -1,6 +1,5 @@
 package com.abaferas.entities
 
-import kotlin.collections.List
 
 data class Books(
     val lastModified: String,
