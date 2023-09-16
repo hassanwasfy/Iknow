@@ -1,9 +1,9 @@
 package com.abaferas.viewmodels.screen.story
 
+import com.abaferas.entities.Story
 import com.abaferas.usecase.usecase.GetTopStoriesBySectionUseCase
 import com.abaferas.viewmodels.base.BaseViewModel
 import com.abaferas.viewmodels.base.ErrorUiState
-import com.abaferas.viewmodels.screen.home.toUiState
 import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
@@ -11,11 +11,11 @@ class StoryViewModel @Inject constructor(
     private val getTopStoriesBySectionUseCase: GetTopStoriesBySectionUseCase
 ) : BaseViewModel<StoryUiState, StoryUiEffect>(StoryUiState()), StoryInteractionListener {
     override fun getData() {
-        tryToExecute(
+        /*tryToExecute(
             execute = { getTopStoriesBySectionUseCase("home").toUiState().results[0] },
             onSuccess = ::onSuccess,
             onError = ::onError
-        )
+        )*/
     }
 
     init {

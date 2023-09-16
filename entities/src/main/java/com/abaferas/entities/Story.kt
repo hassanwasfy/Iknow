@@ -7,8 +7,8 @@ data class Story(
     val url: String = "",
     val byline: String = "",
     val updatedDate: String = "",
-    val keyWords: List<String> = emptyList(),
-    val multimedia: List<Multimedia> = emptyList(),
+    var keyWords: List<String> = emptyList(),
+    var multimedia: List<Multimedia> = emptyList(),
     val shortUrl: String = ""
 ) {
     data class Multimedia(

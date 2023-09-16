@@ -1,13 +1,12 @@
 package com.abaferas.entities
 
-import  kotlin.collections.List
 
 data class MostPopularArticle(
     val results: List<Result>
 ) {
     data class Result(
         val url: String,
-        val id: Long,
+        val idR: Long,
         val source: String,
         val updated: String,
         val section: String,

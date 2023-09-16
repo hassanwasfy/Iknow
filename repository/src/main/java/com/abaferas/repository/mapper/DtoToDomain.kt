@@ -172,8 +172,9 @@ fun DTOListOverView.toDomain(): ArticleList {
 
 fun DTOMostPopularArticle.toDomain(): MostPopularArticle {
     val results = this.results.map { dtoResult ->
-        MostPopularArticle.Result(url = dtoResult.url ?: noData,
-            id = dtoResult.id ?: 0,
+        MostPopularArticle.Result(
+            url = dtoResult.url ?: noData,
+            idR = dtoResult.id ?: 0,
             source = dtoResult.source ?: noData,
             updated = dtoResult.updated ?: noData,
             section = dtoResult.section ?: noData,
