@@ -37,6 +37,7 @@ android {
 dependencies {
 
     implementation(project(":repository"))
+    implementation(project(":exception"))
 
 
     implementation(Deps.coreKtx)

@@ -26,3 +26,4 @@ include(":exception")
 
 
 
+include(":firebase")
