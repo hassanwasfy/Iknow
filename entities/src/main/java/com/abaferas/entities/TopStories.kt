@@ -13,9 +13,9 @@ data class TopStories(
         val updatedDate: String,
         val createdDate: String,
         val publishedDate: String,
-        val desFacet: List<Word>,
+        var desFacet: List<Word>,
         val kicker: String,
-        val multimedia: List<Multimedia>,
+        var multimedia: List<Multimedia>,
         val shortUrl: String
     ) {
         data class Multimedia(
