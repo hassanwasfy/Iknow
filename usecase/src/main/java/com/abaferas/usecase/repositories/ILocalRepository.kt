@@ -1,12 +1,6 @@
 package com.abaferas.usecase.repositories
 
-import com.abaferas.entities.Article
-import com.abaferas.entities.ArticleList
-import com.abaferas.entities.Books
-import com.abaferas.entities.MostPopularArticle
-import com.abaferas.entities.TopStories
-import kotlinx.coroutines.flow.Flow
-
+/*
 interface ILocalRepository {
     //region ArticleDao
     suspend fun insertArticle(article: Article)
@@ -52,4 +46,4 @@ interface ILocalRepository {
     fun getAllTopStories(): Flow<List<TopStories>>
     suspend fun getTopStoryById(id: Long): Flow<TopStories>
     //endregion
-}
+}*/

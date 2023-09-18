@@ -1,20 +1,7 @@
 package com.abaferas.iknow.di
 
-import android.content.Context
-import androidx.room.Room
-import com.abaferas.local.room.IKnowRoomDatabase
-import com.abaferas.local.room.dao.*
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
-import dagger.hilt.components.SingletonComponent
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
-import javax.inject.Singleton
 
-
-@Module
+/*@Module
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
 
@@ -61,4 +48,4 @@ object DatabaseModule {
     fun provideDatabaseDispatcher(): CoroutineDispatcher {
         return Dispatchers.IO
     }
-}
+}*/

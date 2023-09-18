@@ -1,8 +1,6 @@
 package com.abaferas.iknow.di
 
-import com.abaferas.local.room.RoomDataSource
 import com.abaferas.remote.retrofit.RetrofitDataSource
-import com.abaferas.repository.source.LocalDataSource
 import com.abaferas.repository.source.RemoteDataSource
 import dagger.Binds
 import dagger.Module
@@ -17,7 +15,7 @@ abstract class DataSourceModule {
     @Binds
     abstract fun bindRemoteDataSource(retrofitDataSource: RetrofitDataSource): RemoteDataSource
 
-    @Binds
-    abstract fun bindLocalDataSource(roomDataSource: RoomDataSource): LocalDataSource
+    /*@Binds
+    abstract fun bindLocalDataSource(roomDataSource: RoomDataSource): LocalDataSource*/
 
 }
