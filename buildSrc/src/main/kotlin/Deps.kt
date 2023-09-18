@@ -79,6 +79,8 @@ object Deps {
     val roomPaging = "androidx.room:room-paging:$roomVersion"
     //datastore
     val dataStore = "androidx.datastore:datastore-preferences:1.0.0"
+    val dataStoreCore = "androidx.datastore:datastore-core:1.0.0"
+    val ds = "androidx.datastore:datastore:1.0.0"
     //retrofit
     val retrofitConvertoer = "com.squareup.retrofit2:converter-gson:2.9.0"
     val okhttp3Logging = "com.squareup.okhttp3:logging-interceptor:4.11.0"

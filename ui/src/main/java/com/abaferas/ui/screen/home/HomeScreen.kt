@@ -55,12 +55,11 @@ fun HomeScreen(homeViewModel: HomeViewModel = hiltViewModel()) {
     HomeScreenContent(state)
     NavigationHandler(effects = homeViewModel.effect) { effect, nav ->
         when (effect) {
-            is HomeUiEffect.NavigateToArticle -> {}
-            is HomeUiEffect.NavigateToBooks -> {}
-            is HomeUiEffect.NavigateToSaves -> {}
-            is HomeUiEffect.NavigateToSearch -> {
-                nav.navigateToSearch()
-            }
+            is HomeUiEffect.NavigateToArticle -> TODO()
+            is HomeUiEffect.NavigateToBooks -> TODO()
+            is HomeUiEffect.NavigateToSaves -> TODO()
+            is HomeUiEffect.NavigateToSearch -> nav.navigateToSearch()
+
         }
     }
 }

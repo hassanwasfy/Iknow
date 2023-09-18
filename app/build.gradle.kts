@@ -75,6 +75,7 @@ dependencies {
     implementation(Deps.roomPaging)
     //data store
     implementation(Deps.dataStore)
+    implementation(Deps.ds)
     //paging
     implementation(Deps.pagingRuntime)
     implementation(Deps.pagingCompose)
